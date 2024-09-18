@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Rufus Bright</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+<style>
+    /* CSS Variables for Colors */
+:root {
+  --neon-blue: #5465ff;
+  --cornflower-blue: #788bff;
+  --jordy-blue: #9bb1ff;
+  --periwinkle: #bfd7ff;
+  --light-cyan: #e2fdff;
+  --dark-blue: #003566; /* New dark blue for contrast */
+  --mid-blue: #1261a0; /* Mid-tone blue */
+  --light-blue: #48cae4; /* Lighter blue */
+}
+
+/* General Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--light-cyan);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Header Section */
+header {
+  background: linear-gradient(135deg, var(--dark-blue), var(--mid-blue), var(--light-blue));
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  color: white;
+  padding: 0 20px;
+}
+
+.header-content {
+  z-index: 1;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--light-cyan);
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.tagline {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--periwinkle);
+  margin-top: 10px;
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* A subtle dark overlay for contrast */
+  z-index: 0;
+}
+
+h1:hover {
+  color: var(--jordy-blue);
+  transition: color 0.4s ease;
+}
+
+.tagline:hover {
+  color: var(--light-blue);
+  transition: color 0.4s ease;
+}
+
+/* Scroll Indicator Styling */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+  color: var(--light-cyan);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.scroll-indicator p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.scroll-indicator .arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 3px solid var(--light-cyan);
+  border-bottom: 3px solid var(--light-cyan);
+  transform: rotate(45deg); /* Rotate to point downwards */
+  margin: 0 auto;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  40% {
+    transform: translateY(10px) rotate(45deg);
+  }
+  60% {
+    transform: translateY(5px) rotate(45deg);
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* About Section */
+.about-section {
+  padding: 50px;
+  background-color: var(--periwinkle);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.about-section h2 {
+  font-size: 36px;
+  color: var(--neon-blue);
+  margin-bottom: 20px;
+}
+
+.about-section h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: var(--cornflower-blue);
+  display: block;
+  margin: 10px auto;
+  border-radius: 2px;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 5px solid var(--neon-blue);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+.profile-picture img:hover {
+  transform: scale(1.1);
+}
+
+.about-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  margin: 0 20px 20px;
+}
+
+.highlight {
+  color: var(--neon-blue);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.about-text:hover {
+  color: var(--cornflower-blue);
+  transition: color 0.3s ease;
+}
+
+/* Skills Section */
+.skills-section {
+  padding: 40px;
+  background-color: var(--light-cyan);
+}
+
+.skills-section h2 {
+  font-size: 32px;
+  color: var(--neon-blue);
+}
+
+.skills-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-section ul li {
+  display: inline-block;
+  background-color: var(--jordy-blue);
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.skills-section ul li:hover {
+  background-color: var(--cornflower-blue);
+  transform: scale(1.1);
+}
+
+/* Projects Section */
+.projects-section {
+  padding: 40px;
+  background-color: var(--periwinkle);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.project {
+  background-color: var(--light-cyan);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 40%;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+.project h3 {
+  color: var(--neon-blue);
+}
+
+.project p {
+  color: var(--cornflower-blue);
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--light-cyan);
+  background-color: var(--neon-blue);
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project a:hover {
+  background-color: var(--cornflower-blue);
+  transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 40px;
+  background-color: var(--light-cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.contact-section:hover {
+  background-color: var(--periwinkle);
+}
+
+/* Contact Title Styling */
+.contact-section h2 {
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+/* Larger Button Styling */
+button {
+  padding: 15px 30px; /* Increased button size */
+  font-size: 18px; /* Larger text */
+  background-color: var(--neon-blue);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: shake 2s infinite; /* Shake animation */
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: var(--cornflower-blue);
+  transform: scale(1.05);
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+/* Social Media Icons Container */
+.social-media {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Social Media Icons Styling */
+.social-media a {
+  color: var(--neon-blue);
+  font-size: 24px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect for Icons */
+.social-media a:hover {
+  color: var(--cornflower-blue);
+  transform: scale(1.1);
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  button {
+    padding: 12px 25px;
+    font-size: 16px;
+  }
+
+  .social-media a {
+    font-size: 20px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+
+  .tagline {
+    font-size: 18px;
+  }
+
+  .about-section {
+    padding: 30px;
+  }
+
+  .about-text {
+    font-size: 16px;
+  }
+
+  .about-section h2 {
+    font-size: 28px;
+  }
+}
+        </style>
+  </head>
+  <body>
+    <header>
+        <div class="header-content">
+          <h1>RUFUS BRIGHT</h1>
+          <p class="tagline">Web Developer | Graphic Designer</p>
+        </div>
+        <div class="scroll-indicator" id="scroll-down">
+          <p>Scroll Down</p>
+          <div class="arrow"></div>
+        </div>
+      </header>
+
+    <!-- About Section -->
+    <div class="about-section" id="about">
+        <h2>About Me</h2>
+        <div class="profile-picture">
+          <img src="rufus_pic.jpg" alt="Your Profile Picture">
+        </div>
+        <p class="about-text">
+          Hi, I’m <span class="highlight">Rufus Bright</span>, a passionate and dedicated Web Developer with a love for creating functional, user-friendly websites that make an impact. With a strong foundation in HTML, CSS, and JavaScript, I specialize in turning creative ideas into real, tangible web experiences.
+          Whether it’s building responsive designs or enhancing website performance, I enjoy solving complex problems through clean and efficient code.
+        </p>
+        <p class="about-text">
+          I’m always exploring new technologies and keeping up with the latest trends in the web development world. From frontend development to backend solutions, I strive to continuously improve my skills and expand my knowledge.
+          My goal is to create seamless digital experiences that engage and inspire users.
+        </p>
+        <p class="about-text">
+          When I’m not coding, you’ll find me exploring the latest in tech, diving into new projects, or spending time on creative pursuits like design and content creation. I’m excited to work on innovative projects that challenge me and help me grow as a developer.
+        </p>
+      </div>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Problem Solving</li>
+      </ul>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <div class="project">
+        <h3>Project 1: Personal Portfolio</h3>
+        <p>A website to showcase my skills, projects, and resume. Includes contact info and live project links.</p>
+        <a href="https://github.com/your-profile/portfolio" target="_blank">View Project</a>
+      </div>
+
+      <div class="project">
+        <h3>Project 2: E-commerce Store</h3>
+        <p>An online store built using React and Node.js. Features product listings, cart functionality, and payments.</p>
+        <a href="https://github.com/your-profile/ecommerce" target="_blank">View Project</a>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2>Contact</h2>
+        <button id="show-contact-btn">Show Contact Info</button>
+        <div id="contact-info" class="contact-info">
+          <p>Email: rufusbright595@gmail.com</p>
+          <p>Phone: +91 - 9510394742</p>
+        </div>
+      
+        <!-- Social Media Icons -->
+        <div class="social-media">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </section>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("scroll-down").addEventListener("click", function() {
+      document.getElementById("about").scrollIntoView({
+        behavior: "smooth", // Smooth scrolling
+        block: "start", // Align with the top of the container
+        inline: "nearest" // Prevents too much horizontal movement if present
+      });
+    });
+  });
+
+      // Event to reveal the contact information
+      const showContactBtn = document.getElementById("show-contact-btn");
+      const contactInfo = document.getElementById("contact-info");
+
+      showContactBtn.addEventListener("click", function() {
+        // Toggle contact info visibility
+        contactInfo.style.display = contactInfo.style.display === "block" ? "none" : "block";
+      });
+
+      
+    </script>
+  </body>
+</html>
